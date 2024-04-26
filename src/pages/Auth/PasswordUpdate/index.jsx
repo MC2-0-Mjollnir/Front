@@ -1,4 +1,4 @@
-const ResetConfirmation = () => {
+const PasswordUpdate = () => {
 
     const submitFN = async (e) => {
         e.preventDefault();
@@ -13,11 +13,13 @@ const ResetConfirmation = () => {
                 <p className="text-center text-sm px-4 mt-4">Manage your password using your mail adress</p>
             </div>
             <div className="flex flex-col gap-4 w-full">
-                <div className="w-full flex gap-4 justify-center">
-                    <input type="text" maxLength={1} minLength={1} className="w-full text-center text-4xl border-2 border-white-gray font-poppins aspect-square"/>
-                    <input type="text" maxLength={1} minLength={1} className="w-full text-center text-4xl border-2 border-white-gray font-poppins aspect-square"/>
-                    <input type="text" maxLength={1} minLength={1} className="w-full text-center text-4xl border-2 border-white-gray font-poppins aspect-square"/>
-                    <input type="text" maxLength={1} minLength={1} className="w-full text-center text-4xl border-2 border-white-gray font-poppins aspect-square"/>
+                <div className="w-full flex flex-col justify-center">
+                    <label htmlFor="password" className="font-unbounded text-lg text-mainColor">Password</label>
+                    <input id="password" type="password" className="w-full px-3 py-4 border-2 border-white-gray font-poppins" placeholder="Password" />
+                </div>
+                <div className="w-full flex flex-col justify-center">
+                    <label htmlFor="confirmpassword" className="font-unbounded text-lg text-mainColor">Confirm Password</label>
+                    <input id="confirmpassword" type="password" className="w-full px-3 py-4 border-2 border-white-gray font-poppins" placeholder="Password" />
                 </div>
                 <input type="submit" className="cursor-pointer transition-all hover:bg-white hover:text-mainColor border border-transparent hover:border-mainColor px-3 py-4 w-full mt-4 text-white font-unbounded bg-mainColor" value='Continue' />
             </div>
@@ -25,4 +27,4 @@ const ResetConfirmation = () => {
     )
 }
 
-export default ResetConfirmation
+export default PasswordUpdate

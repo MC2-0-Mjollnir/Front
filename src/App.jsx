@@ -4,7 +4,10 @@ import Login from "./pages/Auth/Login"
 import Register from "./pages/Auth/Register"
 import ResetPassword from "./pages/Auth/ResetPassword"
 import ResetConfirmation from "./pages/Auth/ResetConfirmation"
-import PasswordUpdated from "./pages/Auth/PasswordUpdated"
+import PasswordUpdate from "./pages/Auth/PasswordUpdate"
+import PasswordUpdateConfirm from "./pages/Auth/PasswordUpdateConfirm"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify"
 
 function App() {
   return (
@@ -16,9 +19,11 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="reset-confirmation" element={<ResetConfirmation />} />
-          <Route path="password-updated" element={<PasswordUpdated />} />
+          <Route path="password-update" element={<PasswordUpdate />} />
+          <Route path="password-update-confirm" element={<PasswordUpdateConfirm />} />
         </Route>
       </Routes>
+      <ToastContainer />
     </div>
   )
 }

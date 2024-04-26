@@ -11,6 +11,7 @@ export default {
         white: "#fff",
         black: "#000",
         secondaryColor: "#66738C",
+        "white-gray": "#AAAAAA"
       },
     },
     fontFamily: {
