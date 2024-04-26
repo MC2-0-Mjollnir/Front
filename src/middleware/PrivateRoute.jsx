@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import isValidAuth from "../utils/isValidAuth";
+import Cookies from "js-cookie";
 
 const PrivateRoute = ({ element }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!isValidAuth()) {
+               if (!Cookies.get("coonect.sid")) {
             navigate('/auth/login');
         }
-    }, [isValidAuth]);
+    }, []);
 
-    return isValidAuth ? element : null;
+    return !!Cookies.get("coonect.sid") ? element : null;
 };
 
 export default PrivateRoute;
