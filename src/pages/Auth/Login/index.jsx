@@ -31,6 +31,7 @@ const Login = () => {
       });
 
       navigate("/user/projects");
+      
     } catch (error) {
       toast.error(error?.response?.message ?? "Error", {
         position: "top-center",

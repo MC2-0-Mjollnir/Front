@@ -12,8 +12,11 @@ import PrivateRoute from "./middleware/PrivateRoute";
 import Projects from "./pages/User/Projects";
 import Support from "./pages/User/Support";
 import Upgrade from "./pages/User/Upgrade";
+import Cookies from "js-cookie";
 
 function App() {
+
+  console.log(Cookies.get('connect.sid'))
   return (
     <div className="bg-[url('/images/Home/background.png')] flex items-center justify-center bg-cover bg-center min-h-screen">
       <Routes>

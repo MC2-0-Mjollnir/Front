@@ -6,7 +6,7 @@ const PrivateRoute = ({ element }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-               if (!Cookies.get("coonect.sid")) {
+        if (!Cookies.get("connect.sid")) {
             navigate('/auth/login');
         }
     }, []);
