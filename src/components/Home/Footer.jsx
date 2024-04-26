@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
           <div className="flex gap-10 mb-10">
             <input
-              className="bg-black w-full border-b-2 border-white"
+              className="bg-black w-full border-b-2 border-white outline-none"
               placeholder="Enter Your email here"
               type="email"
             />
@@ -34,19 +34,19 @@ const Footer = () => {
           </p>
           <ul className="mb-20">
             <li className="mb-2">Beb Ezzouar</li>
-            <li lassName="mb-2">+213 59483223</li>
-            <li lassName="mb-2">user@gmail.com</li>
-            <li lassName="mb-2">9:00 AM - 7:00 PM</li>
+            <li className="mb-2">+213 59483223</li>
+            <li className="mb-2">user@gmail.com</li>
+            <li className="mb-2">9:00 AM - 7:00 PM</li>
           </ul>
 
           <p className="font-unbounded font-bold text-[1.5rem] mb-8">
             Information
           </p>
           <ul>
-            <li lassName="mb-2">Beb Ezzouar</li>
-            <li lassName="mb-2">+213 59483223</li>
-            <li lassName="mb-2">user@gmail.com</li>
-            <li lassName="mb-2">9:00 AM - 7:00 PM</li>
+            <li className="mb-2">Beb Ezzouar</li>
+            <li className="mb-2">+213 59483223</li>
+            <li className="mb-2">user@gmail.com</li>
+            <li className="mb-2">9:00 AM - 7:00 PM</li>
           </ul>
         </div>
       </div>

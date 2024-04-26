@@ -15,14 +15,14 @@ const Pricing = () => {
           dolores minus aut atque libero vitae! Veritatis provident vitae iusto
           ullam.
         </p>
-        <div class="flex items-center">
-          <div class="w-6 h-6 rounded-full border-2 border-white flex-shrink-0"></div>
-          <div class="flex-grow h-[1px] bg-white"></div>
-          <div class="w-6 h-6 rounded-full border-2 border-white flex-shrink-0 bg-secondaryColor"></div>
-          <div class="flex-grow h-[1px] bg-white"></div>
-          <div class="w-6 h-6 rounded-full border-2 border-white flex-shrink-0 "></div>
-          <div class="flex-grow h-[1px] bg-white"></div>
-          <div class="w-2 h-2 rounded-full border-2 border-white bg-white"></div>
+        <div className="flex items-center">
+          <div className="w-6 h-6 rounded-full border-2 border-white flex-shrink-0"></div>
+          <div className="flex-grow h-[1px] bg-white"></div>
+          <div className="w-6 h-6 rounded-full border-2 border-white flex-shrink-0 bg-secondaryColor"></div>
+          <div className="flex-grow h-[1px] bg-white"></div>
+          <div className="w-6 h-6 rounded-full border-2 border-white flex-shrink-0 "></div>
+          <div className="flex-grow h-[1px] bg-white"></div>
+          <div className="w-2 h-2 rounded-full border-2 border-white bg-white"></div>
         </div>
 
         <div className="flex justify-between mt-10 text-left">
@@ -58,8 +58,8 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div class="grid grid-cols-3 grid-rows-2 mt-16 min-h-[30rem] gap-10">
-          <div class="relative row-span-2 mr-10">
+        <div className="grid grid-cols-3 grid-rows-2 mt-16 min-h-[30rem] gap-10">
+          <div className="relative row-span-2 mr-10">
             <img className="" src="/images/Home/Image1.svg" alt="Image1" />
             <div className="absolute bottom-10 ml-2">
               <p className="flex gap-4 text-sm">
@@ -74,7 +74,7 @@ const Pricing = () => {
               alt=""
             />
           </div>
-          <div class=" mr-10 relative">
+          <div className=" mr-10 relative">
             <img className="" src="/images/Home/Image2.svg" alt="Image2" />
             <div className="absolute bottom-4 ml-2">
               <p className="flex gap-4 text-sm">
@@ -89,7 +89,7 @@ const Pricing = () => {
               alt=""
             />
           </div>
-          <div class="relative mr-10">
+          <div className="relative mr-10">
             <img className=" " src="/images/Home/Image3.svg" alt="Image3" />
             <div className="absolute bottom-4 ml-2">
               <p className="flex gap-4 text-sm">
@@ -104,7 +104,7 @@ const Pricing = () => {
               alt=""
             />
           </div>
-          <div class="relative mr-10">
+          <div className="relative mr-10">
             <img className="" src="/images/Home/Image4.svg" alt="Image4" />
             <div className="absolute bottom-4 ml-2">
               <p className="flex gap-4 text-sm">
@@ -119,7 +119,7 @@ const Pricing = () => {
               alt=""
             />
           </div>
-          <div class="relative mr-10">
+          <div className="relative mr-10">
             <img className="" src="/images/Home/Image5.svg" alt="Image5" />
             <div className="absolute bottom-4 ml-2">
               <p className="flex gap-4 text-sm">

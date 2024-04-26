@@ -8,12 +8,14 @@ import PasswordUpdate from "./pages/Auth/PasswordUpdate"
 import PasswordUpdateConfirm from "./pages/Auth/PasswordUpdateConfirm"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
+// import PrivateRoute from "./middleware/PrivateRoute"
 
 function App() {
   return (
     <div className="bg-[url('/images/Home/background.png')] flex items-center justify-center bg-cover bg-center min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* <Route path="profile" element={<PrivateRoute element={} />} /> */}
         <Route path="/auth">
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
