@@ -145,7 +145,7 @@ const AddProject = ({ setAddProject, setProjects }) => {
           </div>
 
           <div className="w-full">
-            <button className=" w-[100%] mx-auto h-[7vh] bg-Green100 rounded-[24px] text-white font-bold flex justify-center text-[1.5rem] items-center">
+            <button className=" w-[100%] mx-auto h-[7vh] bg-mainColor rounded-[24px] text-white font-bold flex justify-center text-[1.5rem] items-center">
               {loading ? <div className="spinner "></div> : "Create"}
             </button>
           </div>

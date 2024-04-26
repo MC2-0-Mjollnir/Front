@@ -10,21 +10,21 @@ const SupportContent = () => {
       <div className="flex flex-col imtes-center gap-16">
         <div className="flex gap-16">
           <div className="flex gap-8 items-center">
-            <img src="./Instagram.png" alt="" />
+            <img src="/images/User/Instagram.png" alt="" />
             <p>la_bengherbia@esi.dz</p>
           </div>
           <div className="flex gap-8 items-center">
-            <img src="./x.png" alt="" />
+            <img src="/images/User/x.png" alt="" />
             <p>la_bengherbia@esi.dz</p>
           </div>
         </div>
         <div className="flex gap-16">
           <div className="flex gap-8 items-center">
-            <img src="./Facebook.png" alt="" />
+            <img src="/images/User/Facebook.png" alt="" />
             <p>la_bengherbia@esi.dz</p>
           </div>
           <div className="flex gap-8 items-center">
-            <img src="./Gmail.png" alt="" />
+            <img src="/images/User/Gmail.png" alt="" />
             <p>la_bengherbia@esi.dz</p>
           </div>
         </div>

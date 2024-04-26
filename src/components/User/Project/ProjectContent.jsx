@@ -12,7 +12,7 @@ const ProjectsContent = () => {
       <div className="flex items-center justify-between px-[10vw]">
         <h2 className="text-[2.5rem] font-bold text-Typo">My Projects</h2>
         <button
-          className="bg-Green100 text-white font-semibold px-[24px] py-[16px] rounded-[12px]"
+          className="bg-mainColor text-white font-semibold px-[24px] py-[16px] rounded-[12px]"
           onClick={() => setAddProject(true)}
         >
           Add project
