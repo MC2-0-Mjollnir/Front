@@ -1,14 +1,12 @@
-import React from "react";
-import Navbar from "../../components/Home/Navbar";
 import HomeContent from "../../components/Home/HomeContent";
+import Layout from "../../components/Layout";
 
-const HomePage = () => {
+const Home = () => {
   return (
-    <div className="bg-[url('/public/images/Home/background.png')] bg-cover bg-center">
-      <Navbar />
+    <Layout isLoading={false}>
       <HomeContent />
-    </div>
+    </Layout>
   );
 };
 
-export default HomePage;
+export default Home;

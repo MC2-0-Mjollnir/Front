@@ -50,9 +50,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-mainColor font-unbounded font-bold text-center py-3 text-white">
-        2024 BuildHub.All Rights Reserved.
-      </div>
     </div>
   );
 };
