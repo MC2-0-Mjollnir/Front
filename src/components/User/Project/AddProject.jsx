@@ -1,7 +1,7 @@
 import { IoMdClose } from "react-icons/io";
 import { GiBrain } from "react-icons/gi";
 import { FaPeopleRoof } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import Input from "../../UI/Input";
 
@@ -38,8 +38,8 @@ const AddProject = ({ setAddProject, setProjects }) => {
       <div className="w-[30%] py-10 bg-white shadow-md drop-shadow-md flex flex-col gap-5 p-7 rounded-[48px]">
         {created && (
           <div className="bg-white drop-shadow-md shadow-md gap-2 py-4 px-10 flex items-center justify-center">
-            <FaCheckCircle className="text-[#66DC90] " />
-            <h4 className="text-[#66DC90] font-bold text-sm">
+            <FaCheckCircle className="text-mainColor " />
+            <h4 className="text-mainColor font-bold text-sm">
               project has been created successfully
             </h4>
           </div>
@@ -49,7 +49,7 @@ const AddProject = ({ setAddProject, setProjects }) => {
             Add Project
           </h2>
           <IoMdClose
-            className="text-2xl text-[#66DC90] cursor-pointer"
+            className="text-2xl text-mainColor cursor-pointer"
             onClick={() => setAddProject(false)}
           />
         </div>
@@ -134,7 +134,7 @@ const AddProject = ({ setAddProject, setProjects }) => {
                 }
                 className={`flex flex-col gap-2 border-2 w-[50%] cursor-pointer items-center p-2 rounded-md ${
                   formData.virtualRoom === true
-                    ? "border-[#66DC90] text-[#66DC90]"
+                    ? "border-[#66DC90] text-mainColor"
                     : "text-[#CECECE]"
                 } duration-300 ease-in-out `}
               >

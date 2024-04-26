@@ -1,18 +1,16 @@
 import React from "react";
-import UserLayout from "../../../components/User/UserLayout";
 import SupportContent from "../../../components/User/Support/SupportContent";
 import FrequentlyAskedQuestions from "../../../components/User/Support/FrequentlyAskedQuestions";
-import UserSupportLayout from "../../../components/User/Support/UserSupportLayer";
-import Navbar from "../../../components/User/Navbar";
+import Layout from "../../../components/Layout";
 
 const Support = () => {
   return (
-    <UserLayout isLoading={false}>
+    <Layout isLoading={false}>
       <div className="flex flex-col">
         <SupportContent />
         <FrequentlyAskedQuestions />
       </div>
-    </UserLayout>
+    </Layout>
   );
 };
 

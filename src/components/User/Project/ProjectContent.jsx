@@ -5,7 +5,6 @@ import AddProject from "./AddProject";
 const ProjectsContent = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [addProject, setAddProject] = useState(false);
 
   return (

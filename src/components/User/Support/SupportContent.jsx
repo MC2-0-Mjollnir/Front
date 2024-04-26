@@ -1,5 +1,4 @@
 import React from "react";
-import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
 
 const SupportContent = () => {
   return (

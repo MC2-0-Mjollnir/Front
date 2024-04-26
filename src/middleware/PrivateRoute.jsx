@@ -11,7 +11,7 @@ const PrivateRoute = ({ element }) => {
         }
     }, []);
 
-    return !!Cookies.get("coonect.sid") ? element : null;
+    return !!Cookies.get("connect.sid") ? element : null;
 };
 
 export default PrivateRoute;

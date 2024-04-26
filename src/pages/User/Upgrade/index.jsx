@@ -1,12 +1,12 @@
 import React from "react";
-import UserLayout from "../../../components/User/UserLayout";
 import Prices from "../../../components/User/Upgrade/Prices";
+import Layout from "../../../components/Layout";
 
 const Upgrade = () => {
   return (
-    <UserLayout isLoading={false}>
+    <Layout isLoading={false}>
       <Prices />
-    </UserLayout>
+    </Layout>
   );
 };
 
