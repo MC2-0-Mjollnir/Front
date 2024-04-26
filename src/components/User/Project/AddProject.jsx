@@ -3,7 +3,36 @@ import { GiBrain } from "react-icons/gi";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import Input from "../../UI/Input";
+
+const Input = ({
+  type,
+  placeholder,
+  width,
+  onChange,
+  name,
+  value,
+  disabled,
+}) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <div
+      className="relative flex flex-col gap-3 mx-auto"
+      style={{ width: width }}
+    >
+      <input
+        onChange={onChange}
+        disabled={disabled}
+        name={name}
+        value={value}
+        type={showPassword ? "text" : type}
+        placeholder={placeholder}
+        className="w-[100%] h-[7vh] rounded-[24px] px-10 border-Gray66 border-2"
+        required
+      />
+    </div>
+  );
+};
 
 const AddProject = ({ setAddProject, setProjects }) => {
   const [loading, setLoading] = useState(false);
@@ -19,18 +48,10 @@ const AddProject = ({ setAddProject, setProjects }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    
   };
-
- 
-  
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
   };
 
   return (

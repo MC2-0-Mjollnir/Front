@@ -41,7 +41,7 @@ const Navbar = () => {
   console.log(!!Cookies.get("connect.sid"));
 
   return (
-    <div className="flex items-center justify-between min-h-[6rem] max-h-[8rem] px-[4rem] md:px-[7rem] ">
+    <div className="flex items-center justify-between min-h-[6rem] max-h-[8rem] px-[4rem] md:px-[7rem] w-screen ">
       <img className="max-w-[10rem]" src="/Logo.svg" alt="Logo" />
       {Cookies.get("connect.sid") ? (
         <ul className="flex gap-2 md:gap-10 items-center">
