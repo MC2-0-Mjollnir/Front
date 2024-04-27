@@ -26,7 +26,7 @@ const Navbar = () => {
       Cookies.remove("connect.sid");
       location.reload();
     } catch (error) {
-      toast.error("Error", {
+      toast.error(error?.response?.message ?? "Error", {
         position: "top-center",
         autoClose: 5000,
         pauseOnHover: true,
@@ -40,7 +40,7 @@ const Navbar = () => {
 
   return (
     <div className="flex items-center justify-between min-h-[6rem] max-h-[8rem] px-[4rem] md:px-[7rem] w-screen ">
-      <img className="max-w-[10rem]" src="/Logo.svg" alt="Logo" />
+      <Link to={'/'}><img className="max-w-[10rem]" src="/Logo.svg" alt="Logo" /></Link>
       {Cookies.get("connect.sid") ? (
         <ul className="flex gap-2 md:gap-10 items-center">
           <li className="flex transition-all hover:translate-y-1">

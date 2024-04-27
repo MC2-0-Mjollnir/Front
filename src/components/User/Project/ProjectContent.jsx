@@ -21,7 +21,7 @@ const ProjectsContent = ({ projects ,setProjects }) => {
           {projects.length === 0 ? (
             <h2 className="text-center pt-20 text-4xl text-red-600">there are no projects</h2>
           ) : (
-            <div className="flex items-center justify-center flex-wrap gap-6 pb-10">
+            <div className="flex flex-1 min-w-[200px] items-center justify-center flex-wrap gap-6 pb-10">
               {[...projects]?.map((project) => (
                 <ProjectCard key={project._id} project={project} />
               ))}

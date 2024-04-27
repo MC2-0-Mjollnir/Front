@@ -1,9 +1,8 @@
 import { IoMdClose } from "react-icons/io";
-import { GiBrain } from "react-icons/gi";
-import { FaPeopleRoof } from "react-icons/fa6";
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import API from "../../../utils/api-client";
+import { toast } from "react-toastify";
 
 const Input = ({
   type,
@@ -13,6 +12,8 @@ const Input = ({
   name,
   value,
   disabled,
+  max,
+  min
 }) => {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -30,6 +31,8 @@ const Input = ({
         placeholder={placeholder}
         className="w-[100%] h-[7vh] rounded-[24px] px-10 border-Gray66 border-2"
         required
+        min={min}
+        max={max}
       />
     </div>
   );
@@ -41,7 +44,7 @@ const AddProject = ({ setAddProject, setProjects, projects }) => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    plan: "",
+    plan: "basic",
     localisation: {
       lat: "",
       lng: "",
@@ -71,17 +74,35 @@ const AddProject = ({ setAddProject, setProjects, projects }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await API.post("projects/", {
-      ...formData,
-    });
-    projects.push(response.data.project)
-    setAddProject(false)
+    try {
+      e.preventDefault();
+      const response = await API.post("projects/", {
+        ...formData,
+      });
+      projects.push(response.data.project)
+      setAddProject(false)
+
+      toast.success("Project created successfully", {
+        position: "top-center",
+        autoClose: 5000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      })
+    } catch (error) {
+      toast.error(error?.response?.message ?? "Error", {
+        position: "top-center",
+        autoClose: 5000,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "light",
+      });
+    }
   };
 
   return (
     <section className="fixed z-[99] top-0 left-0 right-0 bottom-0 overlay flex items-center justify-center ">
-      <div className="w-[30%] py-10 bg-white shadow-md drop-shadow-md flex flex-col gap-5 p-7 rounded-[48px]">
+      <div className="w-[70%] py-10 bg-white shadow-md drop-shadow-md flex flex-col gap-5 p-7 rounded-[48px]">
         {created && (
           <div className="bg-white drop-shadow-md shadow-md gap-2 py-4 px-10 flex items-center justify-center">
             <FaCheckCircle className="text-mainColor " />
@@ -148,6 +169,8 @@ const AddProject = ({ setAddProject, setProjects, projects }) => {
               label="text"
               placeholder=""
               name="localisation.lat"
+              min={0}
+              max={90}
               value={formData.localisation.lat}
               onChange={handleChange}
               width="100%"
@@ -161,6 +184,8 @@ const AddProject = ({ setAddProject, setProjects, projects }) => {
               label="text"
               placeholder=""
               name="localisation.lng"
+              min={0}
+              max={180}
               value={formData.localisation.lng}
               onChange={handleChange}
               width="100%"

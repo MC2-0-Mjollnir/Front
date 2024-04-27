@@ -47,6 +47,8 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
     }
   };
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className="p-10 w-full flex flex-col items-center ">
       <div className="text-center mb-10">
@@ -60,19 +62,18 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
         </h2>
       </div>
       <div className="flex gap-4">
-        <div className="py-5 px-5 border-2 border-mainColor">
-          Task Scheduling
-        </div>
-        <div className="py-5 px-5 border-2 border-mainColor">
-          Task Scheduling
-        </div>
-        <div className="py-5 px-5 border-2 border-mainColor">
-          Task Scheduling
-        </div>
+        {
+          ['Task Scheduling', 'Risk Predictor', 'Ressources Allocator']
+          .map((item, index) => (
+            <div onClick={() => setActiveIndex(index)} key={index} className={`cursor-pointer p-5 border-2 ${(activeIndex === index) && 'bg-mainColor text-white'}`}>
+              {item}
+            </div>
+          ))
+        }
       </div>
       <div className="flex gap-2 mt-10">
         <img
-          className="self-start"
+          className="self-start border border-black rounded-full"
           src="/images/User/profile.svg"
           alt="profile"
         />
@@ -101,7 +102,7 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
 
       <div className="relative w-full">
         <textarea
-          placeholder="Generate ..."
+          placeholder="Eg: Embark on a comprehensive software development initiative aimed at upgrading our internal CRM system, This project will commence on 2024-05-01 and extend until 2024-09-30..."
           className="h-auto p-5 pr-10 border-2 border-mainColor w-full mt-10"
           value={description}
           onChange={(e) => setDescription(e.target.value)}

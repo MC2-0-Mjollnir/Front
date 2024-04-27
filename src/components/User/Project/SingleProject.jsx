@@ -14,7 +14,7 @@ const SingleProject = ({ project }) => {
             <div className="flex flex-col w-[85%]">
                 <div className="font-unbounded flex items-center gap-4 flex-wrap">
                     {
-                        ["Overview", "Real Time Traking", "Interlligent forecasting"].map((item, index) => (
+                        ["Interlligent forecasting", "Overview", "Real Time Traking"].map((item, index) => (
                             <div key={index} className={`cursor-pointer ${currentIndex === index ? "bg-mainColor text-white border border-black" : "bg-white text-black"} px-4 transition-all py-2`} onClick={() => setCurrentIndex(index)}>{item}</div>
                         ))
                     }
@@ -23,13 +23,13 @@ const SingleProject = ({ project }) => {
                     {
                         (currentIndex === 0)
                         ?
-                        <Overview tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
+                        <InterlligentForecasting tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
                         :
                         (currentIndex === 1)
                         ?
                         <RealTimeTraking localisation={project?.localisation} />
                         :
-                        <InterlligentForecasting tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
+                        <Overview tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
                     }
                 </div>
             </div>
