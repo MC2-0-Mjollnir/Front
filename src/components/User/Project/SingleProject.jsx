@@ -6,7 +6,8 @@ import InterlligentForecasting from "./ProjectTabs/InterlligentForecasting"
 const SingleProject = ({ project }) => {
 
     const [currentIndex, setCurrentIndex] = useState(0)
-
+    const [tasks,setTasks] = useState([])
+    const [isLoading , setIsLoading] = useState(false)
     return (
         <div className="flex flex-col gap-5 w-full justify-center items-center mb-5">
             <h2 className="font-unbounded font-bold text-3xl">{project?.title}</h2>
@@ -22,13 +23,13 @@ const SingleProject = ({ project }) => {
                     {
                         (currentIndex === 0)
                         ?
-                        <Overview />
+                        <Overview tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
                         :
                         (currentIndex === 1)
                         ?
                         <RealTimeTraking localisation={project?.localisation} />
                         :
-                        <InterlligentForecasting />
+                        <InterlligentForecasting tasks={tasks} setTasks={setTasks} isLoading={isLoading} setIsLoading={setIsLoading} />
                     }
                 </div>
             </div>
