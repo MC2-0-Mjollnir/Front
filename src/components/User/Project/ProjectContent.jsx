@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddProject from "./AddProject";
 
@@ -6,8 +6,7 @@ const ProjectsContent = ({ projects }) => {
   const [addProject, setAddProject] = useState(false);
 
   return (
-    <section className="w-screen min-h-screen  flex flex-col  gap-[5vh] ">
-      {/* {JSON.stringify(projects)} */}
+    <section className="w-screen min-h-screen  flex flex-col  gap-6 ">
       <div className="flex items-center justify-between px-[10vw]">
         <h2 className="text-[2.5rem] font-bold text-Typo">My Projects</h2>
         <button
@@ -17,13 +16,13 @@ const ProjectsContent = ({ projects }) => {
           Add project
         </button>
       </div>
-      <div className="flex min-h-screen items-center w-[80vw] mx-auto justify-between flex-wrap gap-y-16">
-        <div className=" w-full h-[50vh] text-2xl capitalize font-bold">
+      <div className="flex items-center w-[95vw] mx-auto justify-between flex-wrap gap-y-16">
+        <div className=" w-full text-2xl capitalize font-bold">
           {projects.length === 0 ? (
-            <h2 className="text-center">there are no projects</h2>
+            <h2 className="text-center pt-20 text-4xl text-red-600">there are no projects</h2>
           ) : (
-            <div className="flex items-center justify-center flex-wrap gap-6">
-              {projects?.map((project) => (
+            <div className="flex items-center justify-center flex-wrap gap-6 pb-10">
+              {[...projects]?.map((project) => (
                 <ProjectCard key={project._id} project={project} />
               ))}
             </div>

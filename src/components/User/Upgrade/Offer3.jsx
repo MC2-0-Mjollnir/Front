@@ -13,7 +13,7 @@ const Offer03 = () => {
           <Feature text={"Dashboard Sales"} />
           <Feature text={"Lead Management"} />
         </div>
-        <button className="w-full bg-mainColor text-white border-2 border-Typo text-[1.4rem] font-bold py-[12px] hover:text-Typo hover:bg-transparent transition-all ease-in-out duration-300">
+        <button className="w-full bg-mainColor hover:text-mainColor text-white border-2 border-Typo text-[1.4rem] font-bold py-[12px] hover:text-Typo hover:bg-transparent transition-all ease-in-out duration-300">
           Get Started
         </button>
       </div>

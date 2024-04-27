@@ -13,17 +13,7 @@ const Projects = () => {
       try {
         setIsLoading(true);
         const response = await API.get("projects/");
-
-        console.log(response.data.projects);
         setProjects(response.data.projects);
-
-        toast.success("Welcome back!", {
-          position: "top-center",
-          autoClose: 5000,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "light",
-        });
       } catch (error) {
         toast.error(error?.response?.message ?? "Error", {
           position: "top-center",

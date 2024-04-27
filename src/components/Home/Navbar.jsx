@@ -38,14 +38,12 @@ const Navbar = () => {
     }
   };
 
-  console.log(!!Cookies.get("connect.sid"));
-
   return (
     <div className="flex items-center justify-between min-h-[6rem] max-h-[8rem] px-[4rem] md:px-[7rem] w-screen ">
       <img className="max-w-[10rem]" src="/Logo.svg" alt="Logo" />
       {Cookies.get("connect.sid") ? (
         <ul className="flex gap-2 md:gap-10 items-center">
-          <li>
+          <li className="flex transition-all hover:translate-y-1">
             <NavLink
               to="/user/projects"
               className={({ isActive }) => (isActive ? "underline" : "")}
@@ -53,7 +51,7 @@ const Navbar = () => {
               Projects
             </NavLink>
           </li>
-          <li>
+          <li className="flex transition-all hover:translate-y-1">
             <NavLink
               to="/user/upgrade"
               className={({ isActive }) => (isActive ? "underline" : "")}
@@ -61,7 +59,7 @@ const Navbar = () => {
               Upgrade
             </NavLink>
           </li>
-          <li>
+          <li className="flex transition-all hover:translate-y-1">
             <NavLink
               to="/user/support"
               className={({ isActive }) => (isActive ? "underline" : "")}
@@ -72,10 +70,10 @@ const Navbar = () => {
         </ul>
       ) : (
         <ul className="flex gap-2 md:gap-10 items-center">
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Provide</li>
-          <li className="flex gap-2 items-center">
+          <li className="flex transition-all hover:translate-y-1">Home</li>
+          <li className="flex transition-all hover:translate-y-1">About Us</li>
+          <li className="flex transition-all hover:translate-y-1">Provide</li>
+          <li className="flex gap-2 items-center transition-all hover:translate-y-1">
             Property <img src="/images/Home/Polygon.svg" alt="Polygon" />
           </li>
         </ul>

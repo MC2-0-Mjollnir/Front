@@ -103,7 +103,7 @@ const Login = () => {
           {!isLoading ? (
             "Login"
           ) : (
-            <Spinner style={{ height: "28px", width: "28px" }} color="white" />
+            <Spinner style={{ height: "28px", width: "28px" }} color="white" className="hover:text-black" />
           )}
         </button>
         <h4 className="text-center">

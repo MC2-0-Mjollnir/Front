@@ -10,44 +10,29 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import PrivateRoute from "./middleware/PrivateRoute";
 import Projects from "./pages/User/Projects";
+import ProjectDetails from "./pages/User/Projects/ProjectDetails";
 import Support from "./pages/User/Support";
 import Upgrade from "./pages/User/Upgrade";
-import Cookies from "js-cookie";
 
 function App() {
 
-  console.log(Cookies.get('connect.sid'))
   return (
     <div className="bg-[url('/images/Home/background.png')] flex items-center justify-center bg-cover bg-center min-h-screen">
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="profile" element={<PrivateRoute element={} />} /> */}
         <Route path="/auth">
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route path="reset-confirmation" element={<ResetConfirmation />} />
           <Route path="password-update" element={<PasswordUpdate />} />
-          <Route
-            path="password-update-confirm"
-            element={<PasswordUpdateConfirm />}
-          />
+          <Route path="password-update-confirm" element={<PasswordUpdateConfirm />} />
         </Route>
         <Route path="/user">
-          <Route
-            path="projects"
-            element={<PrivateRoute element={<Projects />} />}
-            // element={<Projects />}
-          />
-          <Route
-            path="support"
-            element={<PrivateRoute element={<Support />} />}
-            // element={<Support />}
-          />
-          <Route
-            path="upgrade"
-            element={<PrivateRoute element={<Upgrade />} />}
-          />
+          <Route path="projects" element={<PrivateRoute element={<Projects />} />} />
+          <Route path="projects/:id" element={<PrivateRoute element={<ProjectDetails />} />} />
+          <Route path="support" element={<PrivateRoute element={<Support />} />} />
+          <Route path="upgrade" element={<PrivateRoute element={<Upgrade />} />} />
         </Route>
       </Routes>
       <ToastContainer />
