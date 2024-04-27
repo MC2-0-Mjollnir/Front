@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddProject from "./AddProject";
 
-const ProjectsContent = ({ projects }) => {
+const ProjectsContent = ({ projects ,setProjects }) => {
   const [addProject, setAddProject] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ const ProjectsContent = ({ projects }) => {
       {addProject && (
         <AddProject
           projects={projects}
-          setProjects={setProjects}
+          // setProjects={setProjects}
           setAddProject={setAddProject}
         />
       )}

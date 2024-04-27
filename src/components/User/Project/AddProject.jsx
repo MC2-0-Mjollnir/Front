@@ -3,6 +3,7 @@ import { GiBrain } from "react-icons/gi";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import API from "../../../utils/api-client";
 
 const Input = ({
   type,
@@ -34,24 +35,48 @@ const Input = ({
   );
 };
 
-const AddProject = ({ setAddProject, setProjects }) => {
+const AddProject = ({ setAddProject, setProjects, projects }) => {
   const [loading, setLoading] = useState(false);
   const [created, setCreated] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    deadline: "",
-    managerEmail: "",
-    coordinater: false,
-    virtualRoom: false,
+    title: "",
+    description: "",
+    plan: "",
+    localisation: {
+      lat: "",
+      lng: "",
+    },
   });
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Check if the name refers to a nested property by looking for a dot, which represents a property path
+    if (name.includes(".")) {
+      const [key, nestedKey] = name.split(".");
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [key]: {
+          ...prevFormData[key],
+          [nestedKey]: value,
+        },
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await API.post("projects/", {
+      ...formData,
+    });
+    projects.push(response.data.project)
+    setAddProject(false)
   };
 
   return (
@@ -81,9 +106,9 @@ const AddProject = ({ setAddProject, setProjects }) => {
           <div className="flex gap-[12px] flex-col w-[100%]">
             <p className="font-medium text-Typo">Project name</p>
             <Input
-              label="E-mail"
-              placeholder="Project Name"
-              name="name"
+              label="text"
+              placeholder="Project Title"
+              name="title"
               value={formData.name}
               onChange={handleChange}
               width="100%"
@@ -93,78 +118,56 @@ const AddProject = ({ setAddProject, setProjects }) => {
           </div>
 
           <div className="flex gap-[12px] flex-col w-[100%]">
-            <p className="font-medium text-Typo">Deadline</p>
-
-            <input
-              className="w-[100%] h-[7vh] rounded-[24px] px-10 border-Gray66 border-2"
-              type="date"
-              name="deadline"
-              onChange={handleChange}
-            />
-            <input
-              className="w-[100%] h-[7vh] rounded-[24px] px-10 border-Gray66 border-2"
-              type="date"
-              name="deadline"
-              id=""
-            />
-            {error && <p className="text-red-500">{error}</p>}
-          </div>
-
-          <div className="relative flex gap-[12px] flex-col w-[100%]">
-            <p className="font-medium text-Typo">Set Manager</p>
+            <p className="font-medium text-Typo">Project Description</p>
             <Input
-              type="email"
-              placeholder="Email Address"
-              name="managerEmail"
-              value={formData.manager}
+              label="text"
+              placeholder="Project description"
+              name="description"
+              value={formData.description}
               onChange={handleChange}
               width="100%"
               display={"none"}
               disabled={loading}
             />
-            <h4 className="absolute right-[5%] bg-[#BFB7F133] px-2 py-1 rounded-md text-[#BFB7F1] top-[50%]">
-              Manager
-            </h4>
           </div>
 
+          <select
+            name="plan"
+            className="p-2 border-2 border-mainColor rounded-md mt-5 mb-5"
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, plan: e.target.value }))
+            }
+          >
+            <option value="basic">basic</option>
+            <option value="professional">professional</option>
+            <option value="entreprise">entreprise</option>
+          </select>
           <div className="flex gap-[12px] flex-col w-[100%]">
-            <p className="font-medium text-Typo">Features</p>
-            <div className="flex items-center gap-4  justify-center">
-              <div
-                onClick={() =>
-                  setFormData({
-                    ...formData,
-                    coordinater: !formData.coordinater,
-                  })
-                }
-                className={`flex flex-col gap-2 border-2  w-[50%] cursor-pointer items-center p-2 rounded-md ${
-                  formData.coordinater === true
-                    ? "border-[#FBBC09] text-[#FBBC09]"
-                    : "text-[#CECECE]"
-                } duration-300 ease-in-out`}
-              >
-                <GiBrain className="text-5xl" />
-                <h5 className="text-center text-sm">Intelligent Coordinator</h5>
-              </div>
-              <div
-                onClick={() =>
-                  setFormData({
-                    ...formData,
-                    virtualRoom: !formData.virtualRoom,
-                  })
-                }
-                className={`flex flex-col gap-2 border-2 w-[50%] cursor-pointer items-center p-2 rounded-md ${
-                  formData.virtualRoom === true
-                    ? "border-[#66DC90] text-mainColor"
-                    : "text-[#CECECE]"
-                } duration-300 ease-in-out `}
-              >
-                <FaPeopleRoof className="text-5xl" />
-                <h5 className=" text-center  text-sm">Virtual Room</h5>
-              </div>
-            </div>
+            <p className="font-medium text-Typo">latitude</p>
+            <Input
+              label="text"
+              placeholder=""
+              name="localisation.lat"
+              value={formData.localisation.lat}
+              onChange={handleChange}
+              width="100%"
+              display={"none"}
+              disabled={loading}
+            />
           </div>
-
+          <div className="flex gap-[12px] flex-col w-[100%]">
+            <p className="font-medium text-Typo">longitude</p>
+            <Input
+              label="text"
+              placeholder=""
+              name="localisation.lng"
+              value={formData.localisation.lng}
+              onChange={handleChange}
+              width="100%"
+              display={"none"}
+              disabled={loading}
+            />
+          </div>
           <div className="w-full">
             <button className=" w-[100%] mx-auto h-[7vh] bg-mainColor rounded-[24px] text-white font-bold flex justify-center text-[1.5rem] items-center">
               {loading ? <div className="spinner "></div> : "Create"}
