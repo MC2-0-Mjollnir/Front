@@ -1,3 +1,4 @@
+import IFC from "../IFC"
 import Map from "../Map"
 
 const RealTimeTraking = ({ localisation }) => {
@@ -11,8 +12,12 @@ const RealTimeTraking = ({ localisation }) => {
                 <div className="flex flex-col items-center justify-center gap-4">
                     <img src="/images/User/upload.svg" alt="upload" />
                     <p className="mt-2 text-center px-6 text-gray-500">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
-                    <button className="py-4 px-3 font-bold bg-mainColor text-white">UPLOAD MODEL</button>
+                    <label className="py-4 px-3 font-bold bg-mainColor text-white" htmlFor="uploadmodel">UPLOAD MODEL</label>
+                    <input type="file" className="hidden" id="uploadmodel" />
                 </div>
+            </div>
+            <div className="w-full">
+                <IFC />
             </div>
             <div className="w-full relative">
                 <div className="absolute left-6 text-lg top-4 z-10 flex flex-col items-center gap-2">

@@ -19,7 +19,8 @@
     "react-icons": "^5.1.0",
     "react-router-dom": "^6.23.0",
     "react-spinner-material": "^1.4.0",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "web-ifc-viewer": "^1.0.218"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

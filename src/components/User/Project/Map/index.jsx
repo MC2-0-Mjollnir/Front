@@ -4,20 +4,19 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Map({ localisation }) {
 
-    console.log(localisation)
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng] = useState(localisation?.lng ?? 139.753);
     const [lat] = useState(localisation.lat ?? 35.6844);
     const [zoom] = useState(18);
-    const [API_KEY] = useState('177QSRNYYQSul40MAcF1');
+    const [API_KEY] = useState(import.meta.env.VITE_MAP_KEY);
 
     useEffect(() => {
-        if (map.current) return; // stops map from intializing more than once
+        if (map.current) return;
         map.current = new maplibregl.Map({
             container: mapContainer.current,
-            pitch: 60, // pitch in degrees
-            bearing: -60, // bearing in degree
+            pitch: 60,
+            bearing: -60,
             locale: 'en',
             style: `https://api.maptiler.com/maps/streets-v2/style.json?key=${API_KEY}`,
             center: [lng, lat],
