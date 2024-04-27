@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import API from "../../utils/api-client";
@@ -9,6 +9,26 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUsername] = useState('');
+
+  useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const res = await API.get("users/profile");
+        setUsername(res.data.user.firstName[0]+res.data.user.lastName[0])
+      } catch (error) {
+        toast.error(error?.response?.message ?? "Error", {
+          position: "top-center",
+          autoClose: 5000,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "light",
+        });
+      }
+    };
+
+    getProfile();
+  }, [])
 
   const SignOut = async () => {
     setIsLoading(true);
@@ -80,16 +100,19 @@ const Navbar = () => {
       )}
 
       {!!Cookies.get("connect.sid") ? (
-        <button
-          className="bg-mainColor font-bold flex items-center text-white rounded-full px-5 min-h-[3rem]"
-          onClick={SignOut}
-        >
-          {isLoading ? (
-            <Spinner style={{ height: "28px", width: "28px" }} color="white" />
-          ) : (
-            "Logout"
-          )}
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            className="bg-mainColor font-bold flex items-center text-white rounded-full px-5 min-h-[3rem]"
+            onClick={SignOut}
+          >
+            {isLoading ? (
+              <Spinner style={{ height: "28px", width: "28px" }} color="white" />
+            ) : (
+              "Logout"
+            )}
+          </button>
+          <div className="h-10 w-10 flex items-center justify-center rounded-full border border-black bg-white uppercase font-bold aspect-square">{userName}</div>
+        </div>
       ) : (
         <Link
           to={"/auth/login"}

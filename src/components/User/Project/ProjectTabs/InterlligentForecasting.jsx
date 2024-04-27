@@ -5,6 +5,7 @@ import { FrappeGantt } from "frappe-gantt-react";
 
 const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) => {
   const [description, setDescription] = useState("");
+  const [currentDesc, setCurrentDesc] = useState("...");
 //   const [tasks, setTasks] = useState([]);
 //   const [isLoading, setIsLoading] = useState(false);
   const taskValues = {
@@ -19,12 +20,12 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
   const sendDescription = async () => {
     setIsLoading(true);
     try {
-      console.log(description);
       const response = await API.post("gantt/generateTasks", {
         description: description,
       });
 
       setTasks(response.data.tasks);
+      setCurrentDesc(description)
       setDescription("");
 
       toast.success("Generate gantt", {
@@ -71,14 +72,15 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
           ))
         }
       </div>
-      <div className="flex gap-2 mt-10">
+      <div className="flex gap-2 mt-10 relative">
         <img
-          className="self-start border border-black rounded-full"
+          className="self-start border border-black rounded-full relative -left-4 top-1"
           src="/images/User/profile.svg"
           alt="profile"
         />
-        <p className="p-5 bg-gray-400 max-w-[25rem]">
-          generate a planning for a network installation project in gas stations
+        <div className="absolute rotate-45 h-5 w-5 left-12 top-5 bg-gray-400"></div>
+        <p className="p-5 bg-gray-400 max-w-[25rem] relative z-10">
+          {currentDesc}
         </p>
       </div>
 
@@ -86,7 +88,7 @@ const InterlligentForecasting = ( {tasks, setTasks, isLoading, setIsLoading}) =>
         {isLoading ? (
           <div>loading ...</div>
         ) : tasks.length <= 0 ? (
-          <>we are awaitng for your search</>
+          <>We are awaitng for your search</>
         ) : (
           <FrappeGantt
             customPopupHTML={() => {

@@ -36,7 +36,7 @@ const ProjectCard = ({ project }) => {
         theme: "light"
       })
 
-      navigate('/user/projects')
+      location.reload()
     } catch (error) {
       toast.error(error?.response?.message ?? "Error", {
         position: "top-center",

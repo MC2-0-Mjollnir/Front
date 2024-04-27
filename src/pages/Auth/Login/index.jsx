@@ -30,7 +30,7 @@ const Login = () => {
         theme: "light",
       });
 
-      navigate("/user/projects");
+      navigate("/");
       
     } catch (error) {
       toast.error(error?.response?.message ?? "Error", {
